@@ -1,0 +1,12 @@
+cluster_id,ts,severity,source,message
+6ef82fcc-24c4-4459-847c-eba2c1c33d0e,2026-09-12T01:00:00,info,vcenter,vSphere HA re-established cluster heartbeat
+e4358068-5094-42e3-b096-7ab1dd30d372,2026-09-12T02:20:00,info,vcenter,Snapshot consolidation completed
+6639b51a-c9d6-408f-8f43-09c00749c12b,2026-09-12T05:00:00,info,vcenter,NTP time sync warning cleared
+fbd85bb2-3ea9-4cad-bb0a-2bd221c1f226,2026-09-12T10:05:00,warning,vsan-health,vSAN health: memory or SSD congestion reached threshold limit
+fbd85bb2-3ea9-4cad-bb0a-2bd221c1f226,2026-09-12T15:00:00,info,vcenter,Host exited maintenance mode
+6639b51a-c9d6-408f-8f43-09c00749c12b,2026-09-12T15:10:00,warning,vsan-health,vSAN health: network latency check - ping latency above 5ms threshold
+6ef82fcc-24c4-4459-847c-eba2c1c33d0e,2026-09-13T06:00:00,info,vcenter,vSAN: resync operations in progress following host exit from maintenance mode
+6ef82fcc-24c4-4459-847c-eba2c1c33d0e,2026-09-13T07:25:00,info,vcenter,vSAN: resync operations complete
+e4358068-5094-42e3-b096-7ab1dd30d372,2026-09-13T10:33:00,warning,vsan-health,"vSAN health: capacity utilization on vSAN datastore (yellow, >70%)"
+e4358068-5094-42e3-b096-7ab1dd30d372,2026-09-13T16:48:00,warning,vsan-health,"vSAN health: host component count approaching per-host limit (yellow, 80-90%)"
+e4358068-5094-42e3-b096-7ab1dd30d372,2026-09-13T21:07:00,critical,vsan-health,"vSAN health: capacity utilization on vSAN datastore (red, >90%)"
