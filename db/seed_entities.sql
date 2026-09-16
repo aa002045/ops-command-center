@@ -1,28 +1,28 @@
 -- Fabricated seed data. No real customer/site names or values.
 
-insert into clusters (id, name, site, vsan_type, node_count) values ('e4358068-5094-42e3-b096-7ab1dd30d372', 'cluster-prod-east-01', 'fake-dc-east', 'OSA', 4);
-insert into clusters (id, name, site, vsan_type, node_count) values ('fbd85bb2-3ea9-4cad-bb0a-2bd221c1f226', 'cluster-prod-east-02', 'fake-dc-east', 'OSA', 4);
-insert into clusters (id, name, site, vsan_type, node_count) values ('6639b51a-c9d6-408f-8f43-09c00749c12b', 'cluster-prod-west-01', 'fake-dc-west', 'OSA', 4);
-insert into clusters (id, name, site, vsan_type, node_count) values ('6ef82fcc-24c4-4459-847c-eba2c1c33d0e', 'cluster-dr-01', 'fake-dc-west', 'OSA', 4);
+insert into clusters (id, name, site, vsan_type, node_count) values ('cda9e1ab-2de0-5758-9426-af6716f27361', 'cluster-prod-east-01', 'fake-dc-east', 'OSA', 4);
+insert into clusters (id, name, site, vsan_type, node_count) values ('3a07cdb1-d4e1-5c6f-a317-ec38ce02a224', 'cluster-prod-east-02', 'fake-dc-east', 'OSA', 4);
+insert into clusters (id, name, site, vsan_type, node_count) values ('354eab6d-b791-553e-98d4-1740bd629a71', 'cluster-prod-west-01', 'fake-dc-west', 'OSA', 4);
+insert into clusters (id, name, site, vsan_type, node_count) values ('a9b62aad-5e00-5e6a-8feb-a1e62991190f', 'cluster-dr-01', 'fake-dc-west', 'OSA', 4);
 
-insert into hosts (id, cluster_id, name, cpu_cores, mem_total_gb) values ('4212d2bd-3964-48b4-b0e3-07bd0415b30a', 'e4358068-5094-42e3-b096-7ab1dd30d372', 'cluster-prod-east-01-esx01', 32, 512);
-insert into hosts (id, cluster_id, name, cpu_cores, mem_total_gb) values ('c0d1af12-6d86-4bb7-b100-eb9317bface3', 'e4358068-5094-42e3-b096-7ab1dd30d372', 'cluster-prod-east-01-esx02', 32, 512);
-insert into hosts (id, cluster_id, name, cpu_cores, mem_total_gb) values ('ab4ec270-e09c-416f-b2e1-ca57bca64108', 'e4358068-5094-42e3-b096-7ab1dd30d372', 'cluster-prod-east-01-esx03', 32, 512);
-insert into hosts (id, cluster_id, name, cpu_cores, mem_total_gb) values ('479271d0-7de0-44c6-83e1-a3d9addfee9c', 'e4358068-5094-42e3-b096-7ab1dd30d372', 'cluster-prod-east-01-esx04', 32, 512);
-insert into hosts (id, cluster_id, name, cpu_cores, mem_total_gb) values ('ed74dcd0-6258-40af-8e5e-a48f2aa88b63', 'fbd85bb2-3ea9-4cad-bb0a-2bd221c1f226', 'cluster-prod-east-02-esx01', 32, 512);
-insert into hosts (id, cluster_id, name, cpu_cores, mem_total_gb) values ('913e07b4-58fc-4422-ba27-1aaa68253a84', 'fbd85bb2-3ea9-4cad-bb0a-2bd221c1f226', 'cluster-prod-east-02-esx02', 32, 512);
-insert into hosts (id, cluster_id, name, cpu_cores, mem_total_gb) values ('351ad0d5-0a18-424f-8090-451baad96128', 'fbd85bb2-3ea9-4cad-bb0a-2bd221c1f226', 'cluster-prod-east-02-esx03', 32, 512);
-insert into hosts (id, cluster_id, name, cpu_cores, mem_total_gb) values ('af9e1b91-5759-47e6-b0e2-2b5b494ef02b', 'fbd85bb2-3ea9-4cad-bb0a-2bd221c1f226', 'cluster-prod-east-02-esx04', 32, 512);
-insert into hosts (id, cluster_id, name, cpu_cores, mem_total_gb) values ('7e2aaa32-e289-4202-aa93-7e0df02795f7', '6639b51a-c9d6-408f-8f43-09c00749c12b', 'cluster-prod-west-01-esx01', 32, 512);
-insert into hosts (id, cluster_id, name, cpu_cores, mem_total_gb) values ('c5a3fb23-c801-4300-8a1a-ba7b0970ef9e', '6639b51a-c9d6-408f-8f43-09c00749c12b', 'cluster-prod-west-01-esx02', 32, 512);
-insert into hosts (id, cluster_id, name, cpu_cores, mem_total_gb) values ('de4a93e3-dbdf-4611-b9ff-6306599cd36c', '6639b51a-c9d6-408f-8f43-09c00749c12b', 'cluster-prod-west-01-esx03', 32, 512);
-insert into hosts (id, cluster_id, name, cpu_cores, mem_total_gb) values ('b09252b0-558a-4f09-9cb5-86a3a4453781', '6639b51a-c9d6-408f-8f43-09c00749c12b', 'cluster-prod-west-01-esx04', 32, 512);
-insert into hosts (id, cluster_id, name, cpu_cores, mem_total_gb) values ('793143cb-8813-4de1-9023-75c9e3c24f19', '6ef82fcc-24c4-4459-847c-eba2c1c33d0e', 'cluster-dr-01-esx01', 32, 512);
-insert into hosts (id, cluster_id, name, cpu_cores, mem_total_gb) values ('4191fcf6-9e4d-4457-8114-6380a6a405a3', '6ef82fcc-24c4-4459-847c-eba2c1c33d0e', 'cluster-dr-01-esx02', 32, 512);
-insert into hosts (id, cluster_id, name, cpu_cores, mem_total_gb) values ('a36db6aa-0928-497b-83d9-7afb08fd79b4', '6ef82fcc-24c4-4459-847c-eba2c1c33d0e', 'cluster-dr-01-esx03', 32, 512);
-insert into hosts (id, cluster_id, name, cpu_cores, mem_total_gb) values ('773252a5-cf6d-4c04-b640-9a714e69e146', '6ef82fcc-24c4-4459-847c-eba2c1c33d0e', 'cluster-dr-01-esx04', 32, 512);
+insert into hosts (id, cluster_id, name, cpu_cores, mem_total_gb) values ('591e660f-d6e3-51a0-947c-e788e1318c59', 'cda9e1ab-2de0-5758-9426-af6716f27361', 'cluster-prod-east-01-esx01', 32, 512);
+insert into hosts (id, cluster_id, name, cpu_cores, mem_total_gb) values ('3c923de6-989e-546c-ad99-34eb3857b825', 'cda9e1ab-2de0-5758-9426-af6716f27361', 'cluster-prod-east-01-esx02', 32, 512);
+insert into hosts (id, cluster_id, name, cpu_cores, mem_total_gb) values ('8078bd54-2844-5a71-9b48-41773152cc1e', 'cda9e1ab-2de0-5758-9426-af6716f27361', 'cluster-prod-east-01-esx03', 32, 512);
+insert into hosts (id, cluster_id, name, cpu_cores, mem_total_gb) values ('85b5f7fb-7505-5831-9ad7-e281aa4782cb', 'cda9e1ab-2de0-5758-9426-af6716f27361', 'cluster-prod-east-01-esx04', 32, 512);
+insert into hosts (id, cluster_id, name, cpu_cores, mem_total_gb) values ('16dd56a1-10a4-5c1e-8723-704717bafb9b', '3a07cdb1-d4e1-5c6f-a317-ec38ce02a224', 'cluster-prod-east-02-esx01', 32, 512);
+insert into hosts (id, cluster_id, name, cpu_cores, mem_total_gb) values ('198ba3b8-9791-5e8d-ac23-9322c23edc5c', '3a07cdb1-d4e1-5c6f-a317-ec38ce02a224', 'cluster-prod-east-02-esx02', 32, 512);
+insert into hosts (id, cluster_id, name, cpu_cores, mem_total_gb) values ('666211c8-0cea-5412-b955-481305d4cc61', '3a07cdb1-d4e1-5c6f-a317-ec38ce02a224', 'cluster-prod-east-02-esx03', 32, 512);
+insert into hosts (id, cluster_id, name, cpu_cores, mem_total_gb) values ('854971a3-96d1-5d9a-9903-27e72408036f', '3a07cdb1-d4e1-5c6f-a317-ec38ce02a224', 'cluster-prod-east-02-esx04', 32, 512);
+insert into hosts (id, cluster_id, name, cpu_cores, mem_total_gb) values ('c8cec1d5-2ee0-5da5-b1a6-bb1365eb8078', '354eab6d-b791-553e-98d4-1740bd629a71', 'cluster-prod-west-01-esx01', 32, 512);
+insert into hosts (id, cluster_id, name, cpu_cores, mem_total_gb) values ('cd524d2a-aede-5e16-94d6-46c1799cabdc', '354eab6d-b791-553e-98d4-1740bd629a71', 'cluster-prod-west-01-esx02', 32, 512);
+insert into hosts (id, cluster_id, name, cpu_cores, mem_total_gb) values ('922aad91-da2f-5289-aac6-4918684887df', '354eab6d-b791-553e-98d4-1740bd629a71', 'cluster-prod-west-01-esx03', 32, 512);
+insert into hosts (id, cluster_id, name, cpu_cores, mem_total_gb) values ('4fb78e1c-c765-5518-9be7-d5637c3ab380', '354eab6d-b791-553e-98d4-1740bd629a71', 'cluster-prod-west-01-esx04', 32, 512);
+insert into hosts (id, cluster_id, name, cpu_cores, mem_total_gb) values ('1626cdc7-1185-5497-9cc1-7bfc939b78e2', 'a9b62aad-5e00-5e6a-8feb-a1e62991190f', 'cluster-dr-01-esx01', 32, 512);
+insert into hosts (id, cluster_id, name, cpu_cores, mem_total_gb) values ('47babaf2-2327-5223-ad81-05de225673b3', 'a9b62aad-5e00-5e6a-8feb-a1e62991190f', 'cluster-dr-01-esx02', 32, 512);
+insert into hosts (id, cluster_id, name, cpu_cores, mem_total_gb) values ('94a1a75b-9d2d-5a36-a7de-25f1ea532369', 'a9b62aad-5e00-5e6a-8feb-a1e62991190f', 'cluster-dr-01-esx03', 32, 512);
+insert into hosts (id, cluster_id, name, cpu_cores, mem_total_gb) values ('5edebb1b-8d69-5b7c-84b4-26b9a2c58af7', 'a9b62aad-5e00-5e6a-8feb-a1e62991190f', 'cluster-dr-01-esx04', 32, 512);
 
-insert into datastores (id, cluster_id, name, type, total_capacity_gb) values ('f6be59e1-a835-44f8-aa38-70716bb8869e', 'e4358068-5094-42e3-b096-7ab1dd30d372', 'cluster-prod-east-01-vsan-ds', 'vSAN', 46080);
-insert into datastores (id, cluster_id, name, type, total_capacity_gb) values ('a0796371-6cc6-4b41-b945-d27e5e502f69', 'fbd85bb2-3ea9-4cad-bb0a-2bd221c1f226', 'cluster-prod-east-02-vsan-ds', 'vSAN', 46080);
-insert into datastores (id, cluster_id, name, type, total_capacity_gb) values ('cc471603-903a-48dc-8b10-ceff659d919f', '6639b51a-c9d6-408f-8f43-09c00749c12b', 'cluster-prod-west-01-vsan-ds', 'vSAN', 46080);
-insert into datastores (id, cluster_id, name, type, total_capacity_gb) values ('01f8cf64-db08-4c06-b2d9-6a2d8924f940', '6ef82fcc-24c4-4459-847c-eba2c1c33d0e', 'cluster-dr-01-vsan-ds', 'vSAN', 46080);
+insert into datastores (id, cluster_id, name, type, total_capacity_gb) values ('3a6c166d-37fa-5cda-adad-777eb4567f37', 'cda9e1ab-2de0-5758-9426-af6716f27361', 'cluster-prod-east-01-vsan-ds', 'vSAN', 46080);
+insert into datastores (id, cluster_id, name, type, total_capacity_gb) values ('f1a6081a-48e3-56db-936e-f49af9832cb1', '3a07cdb1-d4e1-5c6f-a317-ec38ce02a224', 'cluster-prod-east-02-vsan-ds', 'vSAN', 46080);
+insert into datastores (id, cluster_id, name, type, total_capacity_gb) values ('18b90679-ba14-5785-bca6-c3cc1e3ad587', '354eab6d-b791-553e-98d4-1740bd629a71', 'cluster-prod-west-01-vsan-ds', 'vSAN', 46080);
+insert into datastores (id, cluster_id, name, type, total_capacity_gb) values ('77059140-e829-5d12-90bd-2d2ebd9c436c', 'a9b62aad-5e00-5e6a-8feb-a1e62991190f', 'cluster-dr-01-vsan-ds', 'vSAN', 46080);

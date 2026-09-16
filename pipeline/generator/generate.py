@@ -39,37 +39,47 @@ INTERVAL_MIN = 2
 HOURS = 48
 STEPS = HOURS * 60 // INTERVAL_MIN  # 1440 samples per entity
 
+# Fixed, arbitrary namespace UUID used only to derive deterministic entity
+# IDs below. uuid.uuid4() draws from OS randomness and is NOT made
+# reproducible by random.seed(42) — that seed only controls the metric
+# *values* (via the `random` module). Deriving entity IDs from their name
+# with uuid.uuid5 instead means reruns always produce the same
+# cluster/host/datastore IDs, so a re-generated CSV never goes stale
+# against entities you already loaded into Postgres.
+ID_NAMESPACE = uuid.UUID("7c9f0b1e-3a4d-4e5f-8a6b-1d2c3e4f5a6b")
 
-def new_id():
-    return str(uuid.uuid4())
+
+def new_id(name):
+    return str(uuid.uuid5(ID_NAMESPACE, name))
 
 
 # --------------------------------------------------------------------------
 # Entities — fabricated names, nothing tied to any real site or customer
 # --------------------------------------------------------------------------
 CLUSTERS = [
-    {"id": new_id(), "name": "cluster-prod-east-01", "site": "fake-dc-east", "vsan_type": "OSA", "node_count": 4},
-    {"id": new_id(), "name": "cluster-prod-east-02", "site": "fake-dc-east", "vsan_type": "OSA", "node_count": 4},
-    {"id": new_id(), "name": "cluster-prod-west-01", "site": "fake-dc-west", "vsan_type": "OSA", "node_count": 4},
-    {"id": new_id(), "name": "cluster-dr-01", "site": "fake-dc-west", "vsan_type": "OSA", "node_count": 4},
+    {"id": new_id("cluster-prod-east-01"), "name": "cluster-prod-east-01", "site": "fake-dc-east", "vsan_type": "OSA", "node_count": 4},
+    {"id": new_id("cluster-prod-east-02"), "name": "cluster-prod-east-02", "site": "fake-dc-east", "vsan_type": "OSA", "node_count": 4},
+    {"id": new_id("cluster-prod-west-01"), "name": "cluster-prod-west-01", "site": "fake-dc-west", "vsan_type": "OSA", "node_count": 4},
+    {"id": new_id("cluster-dr-01"), "name": "cluster-dr-01", "site": "fake-dc-west", "vsan_type": "OSA", "node_count": 4},
 ]
 
 HOSTS = []
 for c in CLUSTERS:
     for i in range(1, c["node_count"] + 1):
+        host_name = f"{c['name']}-esx{i:02d}"
         HOSTS.append({
-            "id": new_id(),
+            "id": new_id(host_name),
             "cluster_id": c["id"],
-            "name": f"{c['name']}-esx{i:02d}",
+            "name": host_name,
             "cpu_cores": 32,
             "mem_total_gb": 512,
         })
 
 DATASTORES = [
     {
-        "id": new_id(),
+        "id": new_id(ds_name := f"{c['name']}-vsan-ds"),
         "cluster_id": c["id"],
-        "name": f"{c['name']}-vsan-ds",
+        "name": ds_name,
         "type": "vSAN",
         "total_capacity_gb": 46080,
     }
@@ -286,7 +296,7 @@ def main():
 
     # ---- write CSVs ----
     def write_csv(path, rows, fieldnames):
-        with open(path, "w", newline="") as f:
+        with open(path, "w", newline="", encoding="utf-8") as f:
             w = csv.DictWriter(f, fieldnames=fieldnames)
             w.writeheader()
             w.writerows(rows)
@@ -325,7 +335,7 @@ def main():
             f"({sql_str(d['id'])}, {sql_str(d['cluster_id'])}, {sql_str(d['name'])}, "
             f"{sql_str(d['type'])}, {d['total_capacity_gb']});"
         )
-    with open(os.path.join(DB_DIR, "seed_entities.sql"), "w") as f:
+    with open(os.path.join(DB_DIR, "seed_entities.sql"), "w", encoding="utf-8") as f:
         f.write("\n".join(lines) + "\n")
 
     # ---- write signatures.sql (Phase 01 table, grounded in real vSAN KB
@@ -393,7 +403,7 @@ def main():
             f"values (gen_random_uuid(), {sql_str(s['name'])}, '{desc}', '{rule_json}'::jsonb, "
             f"{sql_str(s['default_severity'])}, '{src}');"
         )
-    with open(os.path.join(DB_DIR, "signatures.sql"), "w") as f:
+    with open(os.path.join(DB_DIR, "signatures.sql"), "w", encoding="utf-8") as f:
         f.write("\n".join(sig_lines) + "\n")
 
     print(f"host_metrics: {len(host_rows)} rows")
